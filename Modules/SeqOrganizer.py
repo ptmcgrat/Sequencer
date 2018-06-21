@@ -201,7 +201,7 @@ class RefDatabase():
             
         database_data = self.dt[self.dt.DatabaseID == databaseID]
         for o_data in database_data.iterrows():
-            return RefObj(databaseID, o_data[1].Species, self.dbDirectory, o_data[1].GTFFlag)
+            return RefObj(databaseID, o_data[1].Species, self.retDatbaseDir(databaseID, o_data[1].Species), o_data[1].GTFFlag)
         
     def retDatabaseDir(self, gv, species = 'c_elegans'):
         data_dir = self.dbDirectory + species + '/' + gv + '/'
