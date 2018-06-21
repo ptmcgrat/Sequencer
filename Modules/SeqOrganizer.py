@@ -235,8 +235,8 @@ class SampleObj():
         self.fqfile1 = baseDir + fqfile1
         if 'processed' not in self.fqfile1:
             print(self.fqfile1)
-            self.fqfile1.replace('.fastq.', '.processed.fastq.')
-            self.fqfile1.replace('.fq.', '.processed.fq.')
+            self.fqfile1 = self.fqfile1.replace('.fastq.', '.processed.fastq.')
+            self.fqfile1 = self.fqfile1.replace('.fq.', '.processed.fq.')
             print(self.fqfile1)
 
         if fqfile2 == '' or fqfile2 != fqfile2:
@@ -249,8 +249,8 @@ class SampleObj():
             self.fqfile2 = baseDir + fqfile2
 
             if 'processed' not in self.fqfile2:
-                self.fqfile2.replace('.fastq.', '.processed.fastq.')
-                self.fqfile2.replace('.fq.', '.processed.fq.')
+                self.fafile2 = self.fqfile2.replace('.fastq.', '.processed.fastq.')
+                self.fqfile2 = self.fqfile2.replace('.fq.', '.processed.fq.')
 
 
             self.two_fq_flag = True
