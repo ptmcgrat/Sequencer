@@ -244,8 +244,8 @@ class SampleObj():
                 print(fqfile2 + ' must end in fq.gz or fastq.gz', file = sys.stderr)
                 raise(NameError)
             if 'processed' not in self.fqfile2:
-            self.fqfile2.replace('.fastq.', '.processed.fastq.')
-            self.fqfile2.replace('.fq.', '.processed.fq.')
+                self.fqfile2.replace('.fastq.', '.processed.fastq.')
+                self.fqfile2.replace('.fq.', '.processed.fq.')
 
 
             self.two_fq_flag = True
