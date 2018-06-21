@@ -243,13 +243,15 @@ class SampleObj():
             if '.fq.gz' not in fqfile2 and '.fastq.gz' not in fqfile2:
                 print(fqfile2 + ' must end in fq.gz or fastq.gz', file = sys.stderr)
                 raise(NameError)
+
+            self.fqfile2 = baseDir + fqfile2
+
             if 'processed' not in self.fqfile2:
                 self.fqfile2.replace('.fastq.', '.processed.fastq.')
                 self.fqfile2.replace('.fq.', '.processed.fq.')
 
 
             self.two_fq_flag = True
-            self.fqfile2 = baseDir + fqfile2
         self.libraryType = library_type
         self.RG_info = '@RG\\tID:' + str(self.libraryID) + '\\tSM:' + str(self.sampleID) + '\\tPL:illumina\\tLB:' + str(self.sampleID)
         
