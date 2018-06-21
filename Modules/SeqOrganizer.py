@@ -234,9 +234,11 @@ class SampleObj():
         self.paired_flag = paired_flag
         self.fqfile1 = baseDir + fqfile1
         if 'processed' not in self.fqfile1:
+            print(self.fqfile1)
             self.fqfile1.replace('.fastq.', '.processed.fastq.')
             self.fqfile1.replace('.fq.', '.processed.fq.')
-            
+            print(self.fqfile1)
+
         if fqfile2 == '' or fqfile2 != fqfile2:
             self.two_fq_flag = False
         else:
