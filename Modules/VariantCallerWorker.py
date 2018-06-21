@@ -157,8 +157,10 @@ class VariantCallerGenotyper():
                     if run.two_fq_flag:
                         print('   Processing paired fastq files ' + run.fqfile1.split('/')[-1] + ' and ' + run.fqfile2.split('/')[-1], file = sys.stderr)
                         bwa_command = ['bwa', 'mem', '-t', str(cpu_count()), '-R', run.RG_info, '-M', ref_file, run.fqfile1, run.fqfile2]
-                        #print('   ' + ' '.join(bwa_command), file = sys.stderr)
+                        print('   ' + ' '.join(bwa_command), file = sys.stderr)
                         call(bwa_command, stdout = open(tfile1, 'w'), stderr = FNULL)
+                        call(bwa_command, stdout = open(tfile1, 'w'))
+
                     else:
                         print('   Processing interleaved fastq file ' + run.fqfile1.split('/')[-1], file = sys.stderr)
                         bwa_command = ['bwa', 'mem', '-t', str(cpu_count()), '-p', '-R', run.RG_info,'-M', ref_file, run.fqfile1]
