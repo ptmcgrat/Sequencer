@@ -249,7 +249,7 @@ class SampleObj():
             self.fqfile2 = baseDir + fqfile2
 
             if 'processed' not in self.fqfile2:
-                self.fafile2 = self.fqfile2.replace('.fastq.', '.processed.fastq.')
+                self.fqfile2 = self.fqfile2.replace('.fastq.', '.processed.fastq.')
                 self.fqfile2 = self.fqfile2.replace('.fq.', '.processed.fq.')
 
 
