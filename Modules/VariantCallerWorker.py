@@ -159,6 +159,7 @@ class VariantCallerGenotyper():
                         bwa_command = ['bwa', 'mem', '-t', str(cpu_count()), '-R', run.RG_info, '-M', ref_file, run.fqfile1, run.fqfile2]
                         print('   ' + ' '.join(bwa_command), file = sys.stderr)
                         call(bwa_command, stdout = open(tfile1, 'w'), stderr = FNULL)
+                        print(tfile1)
                         #call(bwa_command, stdout = open(tfile1, 'w'))
 
                     else:
@@ -174,12 +175,16 @@ class VariantCallerGenotyper():
 
                 # Sort sam file and convert to bam file
                 print('   Sorting file...', file = sys.stderr)
+                print(tfile1)
+                print(tfile2)
                 p1 = Popen(['samtools', 'view', '-bh', '-@', str(cpu_count()), tfile1], stdout=PIPE)
                 p2 = Popen(['samtools', 'sort','-o', tfile2, '-@', str(cpu_count()), '-'], stdin = p1.stdout, stderr = FNULL)
                 p2.communicate()
 
                 # Remove duplicates
                 print('   Removing duplicates...', file = sys.stderr)
+                print(tfile2)
+                print(tfile3)
                 call(['samtools','rmdup','-s', tfile2, tfile3], stderr = FNULL)
                 #call(['java', '-jar','/usr/local/share/java/picard.jar','SortSam', 'I=' + tfile1, 'O=' + tfile2, 'SORT_ORDER=coordinate'])
 
