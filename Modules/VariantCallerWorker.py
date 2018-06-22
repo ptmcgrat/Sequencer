@@ -189,7 +189,7 @@ class VariantCallerGenotyper():
                 #call(['java', '-jar','/usr/local/share/java/picard.jar','SortSam', 'I=' + tfile1, 'O=' + tfile2, 'SORT_ORDER=coordinate'])
 
                 # Remove temporary files and append last file to array to merge
-                #call(['rm', '-f', tfile1, tfile2, 'temp.txt'])
+                call(['rm', '-f', tfile1, tfile2, 'temp.txt'])
                 bamfiles.append(tfile3)
 
             # Merge bamfiles together
