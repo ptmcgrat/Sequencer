@@ -265,10 +265,10 @@ class VariantCallerGenotyper():
             call(['samtools','index', clipped_bm])
             call(['samtools','index', chimeric_bm])
  
-            qualimap_dir = FM.ret_qualimap_dir('PatrickDNA', self.databaseID, sampleID)
+            #qualimap_dir = FM.ret_qualimap_dir('PatrickDNA', self.databaseID, sampleID)
             # Hack to deal with inability of qualimap to deal with spaces in file name
-            print('\t'.join(['/Users/pmcgrath7/qualimap_v2.2.1/qualimap', 'bamqc', '-bam', all_bm.replace(os.getcwd() + '//', ''), '-c', '-outdir', qualimap_dir.replace(os.getcwd() + '//', '')]), file = sys.stderr)
-            call(['/Users/pmcgrath7/qualimap_v2.2.1/qualimap', 'bamqc', '-bam', all_bm.replace(os.getcwd() + '//', ''), '-c', '-outdir', qualimap_dir.replace(os.getcwd() + '//', '')])
+            #print('\t'.join(['/Users/pmcgrath7/qualimap_v2.2.1/qualimap', 'bamqc', '-bam', all_bm.replace(os.getcwd() + '//', ''), '-c', '-outdir', qualimap_dir.replace(os.getcwd() + '//', '')]), file = sys.stderr)
+            #call(['/Users/pmcgrath7/qualimap_v2.2.1/qualimap', 'bamqc', '-bam', all_bm.replace(os.getcwd() + '//', ''), '-c', '-outdir', qualimap_dir.replace(os.getcwd() + '//', '')])
 
     def _patrickCaller(self):
         ref_files = DI.ret_database_data(self.genomeVersion, self.species)
